@@ -34,9 +34,7 @@
 #import "UIView+SDExtension.h"
 
 @implementation SDCollectionViewCell
-{
-    __weak UILabel *_titleLabel;
-}
+
 
 
 - (instancetype)initWithFrame:(CGRect)frame
