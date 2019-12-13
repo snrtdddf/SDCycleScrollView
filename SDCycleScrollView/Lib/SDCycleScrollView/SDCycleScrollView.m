@@ -611,11 +611,11 @@ NSString * const ID = @"SDCycleScrollViewCell";
         _cell.imageView.contentMode = self.bannerImageViewContentMode;
         _cell.clipsToBounds = YES;
         _cell.onlyDisplayText = self.onlyDisplayText;
-        if (_keyword.length > 0) {
-            _cell.titleLabel.attributedText = [self setKeywordStyle:_cell.title keyword:_keyword Color:_keywordColor font:_keywordFont];
-        }
+        
     }
-    
+    if (_keyword.length > 0) {
+        _cell.titleLabel.attributedText = [self setKeywordStyle:_cell.title keyword:_keyword Color:_keywordColor font:_keywordFont];
+    }
     return _cell;
 }
 
