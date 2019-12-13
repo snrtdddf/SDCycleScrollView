@@ -199,6 +199,15 @@ typedef enum {
 /**Cell */
 @property (nonatomic, strong) SDCollectionViewCell *cell;
 
+/**文字轮播中的关键字 */
+@property (nonatomic, copy) NSString *keyword;
+
+/**关键字颜色 */
+@property (nonatomic, strong) UIColor *keywordColor;
+
+/**关键字字体 */
+@property (nonatomic, strong) UIColor *keywordFont;
+
 /** 滚动手势禁用（文字轮播较实用） */
 - (void)disableScrollGesture;
 

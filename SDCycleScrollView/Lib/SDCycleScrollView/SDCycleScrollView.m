@@ -611,6 +611,9 @@ NSString * const ID = @"SDCycleScrollViewCell";
         _cell.imageView.contentMode = self.bannerImageViewContentMode;
         _cell.clipsToBounds = YES;
         _cell.onlyDisplayText = self.onlyDisplayText;
+        if (_keyword.length > 0) {
+            _cell.titleLabel.attributedText = [self setKeywordStyle:_cell.title keyword:_keyword Color:_keywordColor font:_keywordFont];
+        }
     }
     
     return _cell;
@@ -688,5 +691,17 @@ NSString * const ID = @"SDCycleScrollViewCell";
         [self setupTimer];
     }
 }
+
+- (NSAttributedString *)setKeywordStyle:(NSString *)title keyword:(NSString *)keyword Color:(UIColor *)color font:(UIFont *)font{
+    
+    NSString *titleStr = title;
+    NSString *keyWord = keyword;
+    NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:titleStr];
+    NSRange range = [titleStr rangeOfString:keyWord];
+    [attriStr setAttributes:@{NSForegroundColorAttributeName : color,   NSFontAttributeName : font} range:range];
+    
+    return attriStr;
+}
+
 
 @end
