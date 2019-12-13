@@ -30,7 +30,6 @@
 
 
 #import "SDCycleScrollView.h"
-#import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"
 #import "TAPageControl.h"
 #import "SDWebImageManager.h"
@@ -568,7 +567,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    _cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     
     long itemIndex = [self pageControlIndexWithCurrentCellIndex:indexPath.item];
     
