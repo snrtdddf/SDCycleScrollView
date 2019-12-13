@@ -573,47 +573,47 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if ([self.delegate respondsToSelector:@selector(setupCustomCell:forIndex:cycleScrollView:)] &&
         [self.delegate respondsToSelector:@selector(customCollectionViewCellClassForCycleScrollView:)] && [self.delegate customCollectionViewCellClassForCycleScrollView:self]) {
-        [self.delegate setupCustomCell:cell forIndex:itemIndex cycleScrollView:self];
-        return cell;
+        [self.delegate setupCustomCell:_cell forIndex:itemIndex cycleScrollView:self];
+        return _cell;
     }else if ([self.delegate respondsToSelector:@selector(setupCustomCell:forIndex:cycleScrollView:)] &&
               [self.delegate respondsToSelector:@selector(customCollectionViewCellNibForCycleScrollView:)] && [self.delegate customCollectionViewCellNibForCycleScrollView:self]) {
-        [self.delegate setupCustomCell:cell forIndex:itemIndex cycleScrollView:self];
-        return cell;
+        [self.delegate setupCustomCell:_cell forIndex:itemIndex cycleScrollView:self];
+        return _cell;
     }
     
     NSString *imagePath = self.imagePathsGroup[itemIndex];
     
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
+            [_cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
         } else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {
                 image = [UIImage imageWithContentsOfFile:imagePath];
             }
-            cell.imageView.image = image;
+            _cell.imageView.image = image;
         }
     } else if (!self.onlyDisplayText && [imagePath isKindOfClass:[UIImage class]]) {
-        cell.imageView.image = (UIImage *)imagePath;
+        _cell.imageView.image = (UIImage *)imagePath;
     }
     
     if (_titlesGroup.count && itemIndex < _titlesGroup.count) {
-        cell.title = _titlesGroup[itemIndex];
+        _cell.title = _titlesGroup[itemIndex];
     }
     
-    if (!cell.hasConfigured) {
-        cell.titleLabelBackgroundColor = self.titleLabelBackgroundColor;
-        cell.titleLabelHeight = self.titleLabelHeight;
-        cell.titleLabelTextAlignment = self.titleLabelTextAlignment;
-        cell.titleLabelTextColor = self.titleLabelTextColor;
-        cell.titleLabelTextFont = self.titleLabelTextFont;
-        cell.hasConfigured = YES;
-        cell.imageView.contentMode = self.bannerImageViewContentMode;
-        cell.clipsToBounds = YES;
-        cell.onlyDisplayText = self.onlyDisplayText;
+    if (!_cell.hasConfigured) {
+        _cell.titleLabelBackgroundColor = self.titleLabelBackgroundColor;
+        _cell.titleLabelHeight = self.titleLabelHeight;
+        _cell.titleLabelTextAlignment = self.titleLabelTextAlignment;
+        _cell.titleLabelTextColor = self.titleLabelTextColor;
+        _cell.titleLabelTextFont = self.titleLabelTextFont;
+        _cell.hasConfigured = YES;
+        _cell.imageView.contentMode = self.bannerImageViewContentMode;
+        _cell.clipsToBounds = YES;
+        _cell.onlyDisplayText = self.onlyDisplayText;
     }
     
-    return cell;
+    return _cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
