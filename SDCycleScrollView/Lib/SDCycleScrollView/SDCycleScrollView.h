@@ -34,7 +34,7 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "SDCollectionViewCell.h"
 typedef enum {
     SDCycleScrollViewPageContolAlimentRight,
     SDCycleScrollViewPageContolAlimentCenter
@@ -195,6 +195,9 @@ typedef enum {
 
 /** 轮播文字label对齐方式 */
 @property (nonatomic, assign) NSTextAlignment titleLabelTextAlignment;
+
+/**Cell */
+@property (nonatomic, strong) SDCollectionViewCell *cell;
 
 /** 滚动手势禁用（文字轮播较实用） */
 - (void)disableScrollGesture;
