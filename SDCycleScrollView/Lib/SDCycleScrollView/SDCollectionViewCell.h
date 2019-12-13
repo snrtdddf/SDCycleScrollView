@@ -25,7 +25,7 @@
  * 用法示例：https://github.com/gsdios/SDAutoLayout/blob/master/README.md
  * GitHub：https://github.com/gsdios/SDAutoLayout
  *********************************************************************************
- 
+
  */
 
 
@@ -35,6 +35,7 @@
 @interface SDCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) UILabel *titleLabel;
 @property (copy, nonatomic) NSString *title;
 
 @property (nonatomic, strong) UIColor *titleLabelTextColor;
