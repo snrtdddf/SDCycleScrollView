@@ -206,7 +206,7 @@ typedef enum {
 @property (nonatomic, strong) UIColor *keywordColor;
 
 /**关键字字体 */
-@property (nonatomic, strong) UIColor *keywordFont;
+@property (nonatomic, strong) UIFont *keywordFont;
 
 /** 滚动手势禁用（文字轮播较实用） */
 - (void)disableScrollGesture;
